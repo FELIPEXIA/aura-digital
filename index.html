@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Digital | Tecnologia e Presença Digital para o Comércio Local</title>
+  
+  <!-- SEO & Meta Tags -->
+  <meta name="description" content="Desenvolvemos sites profissionais, aplicativos próprios para delivery e cardápios digitais interativos por QR Code para bares, restaurantes e pizzarias. Zero comissões e suporte direto.">
+  <meta name="keywords" content="cardápio digital qr code, aplicativo pizzaria delivery, desenvolvimento de sites, aura digital, sistema restaurante, site profissional">
+  <meta name="author" content="Aura Digital">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aura Digital - Máquina de Vendas Digital para seu Estabelecimento">
+  <meta property="og:description" content="Automatize seu atendimento com Cardápios QR Code e tenha seu App Próprio de Delivery sem taxas abusivas de marketplaces.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            aura: {
+              dark: '#07090e',
+              surface: '#0d121d',
+              card: '#111827',
+              cyan: '#38bdf8',
+              emerald: '#10b981',
+              indigo: '#6366f1'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Outfit"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#07090e] text-slate-100 antialiased selection:bg-sky-500 selection:text-slate-950">
+
+  <!-- =========================================================================
+       1. HEADER / NAVEGAÇÃO SUPERIOR
+       ========================================================================= -->
+  <header id="mainNavbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-8 border-b border-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo Aura Digital -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+        <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-emerald-400 p-[1px] shadow-lg shadow-sky-500/20 group-hover:shadow-sky-400/40 transition">
+          <div class="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
+            <i data-lucide="cpu" class="w-5 h-5 text-sky-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-black tracking-tight font-heading text-white flex items-center gap-1">
+            Aura <span class="text-sky-400">Digital</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
+          </span>
+          <span class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">Tech Studio</span>
+        </div>
+      </a>
+
+      <!-- Links de Navegação Desktop -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#cases-producao" class="hover:text-sky-400 transition-colors py-1 flex items-center gap-1.5 text-white">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Cases no Ar</span>
+          <span class="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.2 rounded font-bold uppercase">Ao Vivo</span>
+        </a>
+        <a href="#solucoes" class="hover:text-sky-400 transition-colors py-1">Soluções</a>
+        <a href="#calculadora" class="hover:text-sky-400 transition-colors py-1 flex items-center gap-1.5">
+          <span>Economia</span>
+          <span class="text-[10px] bg-sky-500/20 text-sky-400 border border-sky-500/30 px-1.5 py-0.2 rounded font-bold">Simulador</span>
+        </a>
+        <a href="#diferenciais" class="hover:text-sky-400 transition-colors py-1">Por que a Aura?</a>
+        <a href="#depoimentos" class="hover:text-sky-400 transition-colors py-1">Depoimentos</a>
+        <a href="#faq" class="hover:text-sky-400 transition-colors py-1">FAQ</a>
+      </nav>
+
+      <!-- Botão CTA Principal Header -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="javascript:void(0)" onclick="openWhatsApp('Olá! Gostaria de falar com um especialista da Aura Digital sobre as soluções para o meu negócio.')" class="relative group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-xs tracking-wide uppercase overflow-hidden transition-all duration-300 bg-gradient-to-r from-sky-500 via-sky-400 to-emerald-400 text-slate-950 hover:shadow-lg hover:shadow-sky-500/30 active:scale-95">
+          <i data-lucide="message-circle" class="w-4 h-4 fill-slate-950"></i>
+          <span>Falar no WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Botão Hamburguer Mobile -->
+      <button id="mobileMenuBtn" aria-label="Abrir Menu" class="md:hidden p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu Drawer Mobile -->
+  <div id="mobileMenu" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl hidden flex flex-col p-6 transition-all duration-300">
+    <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+      <div class="flex items-center gap-2">
+        <span class="text-xl font-bold font-heading text-white">Aura <span class="text-sky-400">Digital</span></span>
+      </div>
+      <button id="closeMobileMenuBtn" aria-label="Fechar Menu" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-5 py-8 text-lg font-medium text-slate-200">
+      <a href="#cases-producao" class="mobile-nav-link text-white hover:text-sky-400 transition-colors flex items-center justify-between font-semibold">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Sistemas em Produção</span>
+        </div>
+        <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Ao Vivo</span>
+      </a>
+      <a href="#solucoes" class="mobile-nav-link hover:text-sky-400 transition-colors flex items-center justify-between">
+        <span>Soluções Validadas</span>
+        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+      </a>
+      <a href="#calculadora" class="mobile-nav-link hover:text-sky-400 transition-colors flex items-center justify-between">
+        <span>Simulador de Economia</span>
+        <span class="text-xs bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded font-bold">Simulador</span>
+      </a>
+      <a href="#diferenciais" class="mobile-nav-link hover:text-sky-400 transition-colors flex items-center justify-between">
+        <span>Por que a Aura Digital?</span>
+        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+      </a>
+      <a href="#depoimentos" class="mobile-nav-link hover:text-sky-400 transition-colors flex items-center justify-between">
+        <span>Casos de Sucesso</span>
+        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+      </a>
+      <a href="#faq" class="mobile-nav-link hover:text-sky-400 transition-colors flex items-center justify-between">
+        <span>Perguntas Frequentes</span>
+        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+      </a>
+    </nav>
+
+    <div class="mt-auto pt-6 border-t border-slate-800 flex flex-col gap-3">
+      <button onclick="openWhatsApp('Olá! Vim pelo site mobile e gostaria de solicitar uma proposta.')" class="w-full py-3.5 rounded-xl font-bold bg-gradient-to-r from-sky-500 to-emerald-400 text-slate-950 flex items-center justify-center gap-2">
+        <i data-lucide="message-circle" class="w-5 h-5 fill-slate-950"></i>
+        <span>Falar no WhatsApp Agora</span>
+      </button>
+      <p class="text-xs text-center text-slate-500">Atendimento ágil de segunda a sábado</p>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       2. HERO SECTION (TOPO DE ALTO IMPACTO - AURA DIGITAL)
+       ========================================================================= -->
+  <section id="inicio" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-grid">
+    <!-- Glow Orbs no Fundo -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+    <div class="absolute top-1/3 left-10 w-[300px] h-[300px] bg-emerald-500/10 blur-[110px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Texto & CTAs (Col 7) -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+          
+          <!-- Selo de Sofisticação / Nicho -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-sky-500/30 text-sky-400 text-xs font-semibold shadow-inner">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+            </span>
+            <span>Aura Digital • Engenharia & Soluções para o Comércio Local</span>
+          </div>
+
+          <!-- Título Principal -->
+          <h1 class="text-4xl sm:text-5xl xl:text-6xl font-black tracking-tight font-heading leading-[1.12]">
+            Transforme o seu negócio físico em uma <span class="gradient-brand glow-text-cyan">máquina de vendas digital.</span>
+          </h1>
+
+          <!-- Subtítulo Estratégico -->
+          <p class="text-slate-300 text-base sm:text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Desenvolvemos sites profissionais, aplicativos personalizados e menus digitais de alta performance para <strong class="text-white font-semibold">bares, restaurantes, pizzarias e comércios locais</strong> que desejam independência, agilidade e escala.
+          </p>
+
+          <!-- Badges de Destaque -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs sm:text-sm text-slate-300 pt-1">
+            <div class="flex items-center gap-2 bg-slate-900/60 border border-slate-800 px-3 py-1.5 rounded-lg">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+              <span>Zero taxas por pedido</span>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-900/60 border border-slate-800 px-3 py-1.5 rounded-lg">
+              <i data-lucide="zap" class="w-4 h-4 text-sky-400"></i>
+              <span>Carregamento em &lt; 2s</span>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-900/60 border border-slate-800 px-3 py-1.5 rounded-lg">
+              <i data-lucide="shield-check" class="w-4 h-4 text-indigo-400"></i>
+              <span>Suporte direto dos desenvolvedores</span>
+            </div>
+          </div>
+
+          <!-- Botões de Ação (CTA) -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="javascript:void(0)" onclick="openWhatsApp('Olá! Gostaria de solicitar um orçamento para o meu comércio com a equipe da Aura Digital.')" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm tracking-wide bg-gradient-to-r from-sky-500 to-emerald-400 text-slate-950 hover:shadow-xl hover:shadow-sky-500/25 transition duration-300 flex items-center justify-center gap-2.5 active:scale-95">
+              <span>Solicitar Orçamento Gratuito</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[2.5]"></i>
+            </a>
+
+            <a href="#cases-producao" class="w-full sm:w-auto px-7 py-4 rounded-xl font-semibold text-sm tracking-wide bg-slate-900/80 hover:bg-slate-800/90 text-slate-200 border border-slate-700/80 hover:border-sky-500/40 transition duration-300 flex items-center justify-center gap-2 group">
+              <i data-lucide="layers" class="w-4 h-4 text-sky-400 group-hover:scale-110 transition"></i>
+              <span>Ver Sistemas em Produção</span>
+            </a>
+          </div>
+
+          <!-- Prova Social no Hero (Sem nomes de clientes, foco em métrica) -->
+          <div class="pt-6 border-t border-slate-800/70 flex items-center justify-center lg:justify-start gap-4">
+            <div class="flex -space-x-2">
+              <div class="w-9 h-9 rounded-full bg-slate-800 border-2 border-slate-950 flex items-center justify-center text-xs font-bold text-sky-400">⚡</div>
+              <div class="w-9 h-9 rounded-full bg-slate-800 border-2 border-slate-950 flex items-center justify-center text-xs font-bold text-emerald-400">📱</div>
+              <div class="w-9 h-9 rounded-full bg-slate-800 border-2 border-slate-950 flex items-center justify-center text-xs font-bold text-indigo-400">🛡️</div>
+            </div>
+            <p class="text-xs text-slate-400 text-left">
+              Mais de <span class="text-white font-bold">150.000 pedidos e visualizações</span> processados com 99.9% de estabilidade e segurança.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Visual Mockup Hero (Col 5) - Clean & Sofisticado sem poluição -->
+        <div class="lg:col-span-5 flex justify-center relative">
+          <!-- Ambient Glow Suave -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/15 via-indigo-500/10 to-emerald-500/10 blur-3xl rounded-full pointer-events-none"></div>
+
+          <!-- Smartphone Mockup Principal (Demonstração Universal Aura Digital) -->
+          <div class="w-[290px] sm:w-[320px] phone-mockup p-4 relative z-10">
+            <div class="phone-speaker"></div>
+
+            <!-- Tela do Celular (Visual UI Genérico & Sofisticado) -->
+            <div class="rounded-[28px] overflow-hidden bg-slate-950 border border-slate-800 text-left">
+              
+              <!-- Top bar app -->
+              <div class="p-3 bg-gradient-to-b from-slate-900 to-slate-950 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-md bg-sky-500 flex items-center justify-center text-[10px] font-black text-slate-950">A</div>
+                  <span class="text-xs font-bold text-white">Aura Menu & Delivery</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="text-[10px] text-emerald-400 font-semibold">Demo Interativa</span>
+                </div>
+              </div>
+
+              <!-- Banner de Destaque no Mockup -->
+              <div class="p-3 bg-slate-900/60 border-b border-slate-800/80">
+                <div class="relative rounded-xl overflow-hidden h-24 bg-gradient-to-r from-sky-950 via-slate-900 to-indigo-950 flex items-center justify-center p-3 text-center border border-slate-800">
+                  <div class="relative z-10">
+                    <span class="text-[10px] text-sky-400 font-bold uppercase tracking-wider">Cardápio Mobile-First</span>
+                    <h5 class="text-xs font-extrabold text-white mt-0.5">Sem Download • Rápido & Fluido</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Categorias Pills no Mockup -->
+              <div class="flex gap-1.5 px-3 py-2 border-b border-slate-800/80 overflow-x-auto text-[10px] no-scrollbar">
+                <span class="px-2.5 py-1 rounded-full bg-sky-500 text-slate-950 font-bold shrink-0">Mais Pedidos</span>
+                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 shrink-0">Pratos & Burgers</span>
+                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 shrink-0">Bebidas</span>
+              </div>
+
+              <!-- Lista de pratos elegantes e universais -->
+              <div class="p-3 space-y-2.5">
+                <div class="p-2 rounded-xl bg-slate-900/90 border border-slate-800/90 flex gap-2.5 items-center">
+                  <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-xl shrink-0">🍔</div>
+                  <div class="min-w-0 flex-1">
+                    <div class="text-[11px] font-bold text-white truncate">Burger Artesanal Trufado</div>
+                    <div class="text-[10px] text-slate-400">Blend 180g, cheddar inglês e brioche</div>
+                    <div class="text-[11px] font-extrabold text-emerald-400 mt-0.5">R$ 38,90</div>
+                  </div>
+                </div>
+
+                <div class="p-2 rounded-xl bg-slate-900/90 border border-slate-800/90 flex gap-2.5 items-center">
+                  <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-xl shrink-0">🍕</div>
+                  <div class="min-w-0 flex-1">
+                    <div class="text-[11px] font-bold text-white truncate">Pizza Burrata & Pesto</div>
+                    <div class="text-[10px] text-slate-400">Fermentação lenta e manjericão fresco</div>
+                    <div class="text-[11px] font-extrabold text-emerald-400 mt-0.5">R$ 56,00</div>
+                  </div>
+                </div>
+
+                <div class="p-2 rounded-xl bg-slate-900/90 border border-slate-800/90 flex gap-2.5 items-center">
+                  <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-xl shrink-0">🍹</div>
+                  <div class="min-w-0 flex-1">
+                    <div class="text-[11px] font-bold text-white truncate">Gin Tônica & Especiarias</div>
+                    <div class="text-[10px] text-slate-400">Infusão botânica e cítricos frescos</div>
+                    <div class="text-[11px] font-extrabold text-sky-400 mt-0.5">R$ 28,00</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rodapé do mockup -->
+              <div class="p-3 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+                <div>
+                  <span class="text-[9px] text-slate-400 block">Demonstração Interativa</span>
+                  <span class="text-[11px] font-bold text-emerald-400">Pronto p/ Produção</span>
+                </div>
+                <a href="#cases-producao" class="px-2.5 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-[10px] flex items-center gap-1 transition">
+                  <span>Ver Sistemas</span>
+                  <i data-lucide="arrow-down" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       FAIXA DE MÉTRICAS & CREDIBILIDADE
+       ========================================================================= -->
+  <section class="border-y border-slate-800/80 bg-slate-950/60 py-8 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        
+        <div class="space-y-1">
+          <p class="text-3xl sm:text-4xl font-black font-heading text-sky-400">0%</p>
+          <p class="text-xs sm:text-sm text-slate-400 font-medium">Comissão sobre os seus pedidos</p>
+        </div>
+
+        <div class="space-y-1">
+          <p class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">99.9%</p>
+          <p class="text-xs sm:text-sm text-slate-400 font-medium">Estabilidade em horário de pico</p>
+        </div>
+
+        <div class="space-y-1">
+          <p class="text-3xl sm:text-4xl font-black font-heading text-indigo-400">&lt; 2s</p>
+          <p class="text-xs sm:text-sm text-slate-400 font-medium">Velocidade de abertura instantânea</p>
+        </div>
+
+        <div class="space-y-1">
+          <p class="text-3xl sm:text-4xl font-black font-heading text-white">100%</p>
+          <p class="text-xs sm:text-sm text-slate-400 font-medium">Dos dados de clientes são seus</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       NOVA SEÇÃO: NOSSOS CASES / SISTEMAS EM PRODUÇÃO
+       ========================================================================= -->
+  <section id="cases-producao" class="py-24 relative overflow-hidden bg-slate-950/80 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+      
+      <!-- Cabeçalho da Seção de Cases -->
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider shadow-inner">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Projetos Reais Rodando na Infraestrutura da Aura Digital</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white">
+          Nossos Cases / Sistemas em Produção
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Veja na prática o padrão de engenharia da Aura Digital em operação para estabelecimentos reais. Sistemas com carregamento instantâneo, alta fidelidade e zero falhas em horários de pico.
+        </p>
+      </div>
+
+      <!-- Grid com os Cards dos Cases Reais -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        
+        <!-- CASE 1: Churrasquim do Marcelim -->
+        <div class="glass-card rounded-3xl p-8 sm:p-10 border border-slate-800 hover:border-sky-500/40 relative flex flex-col justify-between group">
+          <div class="space-y-6">
+            
+            <!-- Badges de Status do Case 1 -->
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Ao Vivo no Ar • Produção VPS
+              </span>
+              <span class="text-[11px] font-semibold text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1 rounded-full">
+                Hostinger VPS
+              </span>
+            </div>
+
+            <!-- Título e Subtítulo -->
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-bold font-heading text-white group-hover:text-sky-400 transition-colors">
+                Churrasquim do Marcelim
+              </h3>
+              <p class="text-xs text-sky-400 font-semibold mt-1">O Point de Santo Antônio • Cardápio Digital por QR Code</p>
+              <p class="text-slate-300 text-sm mt-4 leading-relaxed">
+                Sistema mobile-first de alto desempenho desenvolvido para mesas e balcão. O cliente aponta a câmera, o cardápio abre em menos de 1 segundo e o estabelecimento atualiza fotos, pratos e preços em tempo real com custo zero de gráfica.
+              </p>
+            </div>
+
+            <!-- Tags Técnicas -->
+            <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/80 text-slate-300 flex items-center gap-2">
+                <i data-lucide="zap" class="w-4 h-4 text-sky-400 shrink-0"></i>
+                <span>Abertura em &lt; 1s</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/80 text-slate-300 flex items-center gap-2">
+                <i data-lucide="smartphone" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                <span>100% Mobile-First</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/80 text-slate-300 flex items-center gap-2">
+                <i data-lucide="server" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+                <span>VPS Dedicada Hostinger</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/80 text-slate-300 flex items-center gap-2">
+                <i data-lucide="refresh-cw" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                <span>Preços em Tempo Real</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Botões de Ação do Case 1 -->
+          <div class="pt-8 mt-6 border-t border-slate-800/80 flex flex-col sm:flex-row gap-3 items-stretch">
+            <a href="https://churrasquim-marcelim.tv4g2i.easypanel.host/" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-sky-500 to-emerald-400 text-slate-950 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-sky-500/25 transition active:scale-95">
+              <span>Abrir Sistema ao Vivo no Ar</span>
+              <i data-lucide="external-link" class="w-4 h-4 stroke-[2.5]"></i>
+            </a>
+            <button onclick="openWhatsApp('Olá! Vi o case real do Churrasquim do Marcelim no site da Aura Digital e gostaria de um orçamento para implantar o Cardápio QR Code no meu estabelecimento.')" class="py-3 px-4 rounded-xl font-semibold text-xs text-slate-300 hover:text-white transition text-center border border-slate-800 hover:border-slate-700 bg-slate-900/80">
+              Solicitar Orçamento Deste Sistema
+            </button>
+          </div>
+        </div>
+
+        <!-- CASE 2: Pizzaria do Mineiro -->
+        <div class="glass-card rounded-3xl p-8 sm:p-10 border border-slate-800 hover:border-emerald-500/40 relative flex flex-col justify-between group">
+          <div class="space-y-6">
+            
+            <!-- Badges de Status do Case 2 -->
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Case Validado • Delivery Direto
+              </span>
+              <span class="text-[11px] font-semibold text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1 rounded-full">
+                0% Comissões
+              </span>
+            </div>
+
+            <!-- Título e Subtítulo -->
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-bold font-heading text-white group-hover:text-emerald-400 transition-colors">
+                Pizzaria do Mineiro
+              </h3>
+              <p class="text-xs text-emerald-400 font-semibold mt-1">Cardápio Digital & Aplicativo Próprio de Delivery</p>
+              <p class="text-slate-300 text-sm mt-4 leading-relaxed">
+                Solução completa de delivery independente que liberta o estabelecimento das taxas de 27% dos marketplaces. Inclui montador de pizzas meio a meio, bordas recheadas, adicionais e pedidos automáticos no WhatsApp e impressora térmica.
+              </p>
+            </div>
+
+            <!-- Tags Técnicas -->
+            <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/80 text-slate-300 flex items-center gap-2">
+                <i data-lucide="percent" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                <span>0% de Taxas por Pedido</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/80 text-slate-300 flex items-center gap-2">
+                <i data-lucide="pizza" class="w-4 h-4 text-sky-400 shrink-0"></i>
+                <span>Montador Meio a Meio</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/80 text-slate-300 flex items-center gap-2">
+                <i data-lucide="printer" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+                <span>Impressão Térmica Cozinha</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/80 text-slate-300 flex items-center gap-2">
+                <i data-lucide="users" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                <span>Base de Clientes Própria</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Botões de Ação do Case 2 -->
+          <div class="pt-8 mt-6 border-t border-slate-800/80 flex flex-col sm:flex-row gap-3 items-stretch">
+            <a href="https://pizzaria-mineiro.tv4g2i.easypanel.host/" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition active:scale-95">
+              <span>Abrir Sistema ao Vivo no Ar</span>
+              <i data-lucide="external-link" class="w-4 h-4 stroke-[2.5]"></i>
+            </a>
+            <button onclick="openWhatsApp('Olá! Vi o case da Pizzaria do Mineiro no site da Aura Digital e gostaria de um orçamento para o app próprio de delivery da minha pizzaria.')" class="py-3 px-4 rounded-xl font-semibold text-xs text-slate-300 hover:text-white transition text-center border border-slate-800 hover:border-slate-700 bg-slate-900/80">
+              Solicitar Orçamento Deste App
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       3. NOSSAS SOLUÇÕES / PRODUTOS VALIDADOS (O GRANDE DIFERENCIAL)
+       ========================================================================= -->
+  <section id="solucoes" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-wider">
+          Sistemas Prontos e Rodando
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading">
+          Nossas Soluções Validadas para o seu Negócio Decolar
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Chega de soluções genéricas ou sistemas lentos que travam no sábado à noite. Entregamos tecnologia robusta feita sob medida para o comércio local.
+        </p>
+      </div>
+
+      <!-- Grid com os 3 Produtos -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- CARD 1: Cardápio Digital por QR Code -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative group border-t-2 border-t-sky-500/50">
+          <div class="space-y-6">
+            
+            <div class="flex items-center justify-between">
+              <div class="w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:scale-110 transition duration-300">
+                <i data-lucide="qr-code" class="w-7 h-7"></i>
+              </div>
+              <span class="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-sky-500/15 text-sky-300 border border-sky-500/30">
+                Mais Vendido
+              </span>
+            </div>
+
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-[10px] font-bold uppercase tracking-wider mb-2">
+                Bares, Restaurantes & Lanchonetes
+              </div>
+              <h3 class="text-2xl font-bold font-heading text-white">Cardápio Digital por QR Code</h3>
+              <p class="text-xs text-sky-400 font-semibold mt-1">Agilidade nas Mesas & Zero Custo com Gráfica</p>
+              <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                Agilize o atendimento presencial e acabe de vez com o custo e a dor de cabeça de reimprimir cardápios de papel toda vez que um preço muda.
+              </p>
+            </div>
+
+            <!-- Lista de Benefícios -->
+            <ul class="space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Zero custo com gráfica:</strong> altere fotos, pratos e preços em tempo real na nuvem.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Navegação sem download:</strong> o cliente aponta a câmera e o cardápio abre em menos de 1 segundo.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Mais vendas automáticas:</strong> fotos em alta definição que aumentam o ticket médio em até 30%.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Infraestrutura VPS Dedicada:</strong> carregamento instantâneo mesmo com restaurante lotado.</span>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="pt-8 mt-6 border-t border-slate-800/80 space-y-3">
+            <a href="#cases-producao" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-slate-950 border border-sky-500/30 transition flex items-center justify-center gap-2 group">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              <span>Ver Sistema no Ar (Case Churrasquim)</span>
+            </a>
+            <button onclick="openWhatsApp('Olá! Tenho interesse no Cardápio Digital QR Code da Aura Digital e gostaria de um orçamento.')" class="w-full py-3 rounded-xl font-semibold text-xs text-slate-400 hover:text-white transition text-center">
+              Solicitar Orçamento Deste Sistema &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 2: Aplicativo Próprio para Pizzarias (Focado em Delivery) -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative group border-t-2 border-t-emerald-500/60 bg-gradient-to-b from-slate-900/90 to-slate-950">
+          
+          <!-- Badge Destaque -->
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-sky-500 text-slate-950 text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+            Maior Rentabilidade
+          </div>
+
+          <div class="space-y-6 pt-2">
+            
+            <div class="flex items-center justify-between">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition duration-300">
+                <i data-lucide="pizza" class="w-7 h-7"></i>
+              </div>
+              <span class="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                Adeus Comissões
+              </span>
+            </div>
+
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider mb-2">
+                Pizzarias, Burgers & Delivery
+              </div>
+              <h3 class="text-2xl font-bold font-heading text-white">App Próprio para Pizzarias</h3>
+              <p class="text-xs text-emerald-400 font-semibold mt-1">Focado em Delivery Direto & Autonomia</p>
+              <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                Pare de entregar de 20% a 27% do faturamento da sua pizzaria para marketplaces. Tenha seu próprio canal oficial de vendas com fidelização de clientes.
+              </p>
+            </div>
+
+            <!-- Lista de Benefícios -->
+            <ul class="space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>0% de Taxa por Pizza:</strong> cada real faturado é 100% da sua pizzaria.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Montador de Meio a Meio:</strong> cálculo automático pelo maior valor ou média, bordas e adicionais.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Banco de Clientes Próprio:</strong> envie promoções e cupons direto no WhatsApp do cliente.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Integração com Cozinha:</strong> impressão direta em impressoras térmicas (58mm/80mm).</span>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="pt-8 mt-6 border-t border-slate-800/80 space-y-3">
+            <a href="#cases-producao" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              <span>Ver Sistema no Ar (Case Pizzaria)</span>
+            </a>
+            <button onclick="openWhatsApp('Olá! Tenho interesse no Aplicativo Próprio de Delivery para Pizzarias e gostaria de um orçamento.')" class="w-full py-3 rounded-xl font-semibold text-xs text-slate-400 hover:text-white transition text-center">
+              Solicitar Orçamento Deste App &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 3: Desenvolvimento de Sites & Landing Pages -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative group border-t-2 border-t-indigo-500/50">
+          <div class="space-y-6">
+            
+            <div class="flex items-center justify-between">
+              <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition duration-300">
+                <i data-lucide="layout" class="w-7 h-7"></i>
+              </div>
+              <span class="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+                Autoridade & SEO
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold font-heading text-white">Sites & Landing Pages</h3>
+              <p class="text-xs text-indigo-400 font-semibold mt-1">Presença Digital de Alta Conversão</p>
+              <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                Um site institucional moderno que posiciona sua marca no topo do Google (SEO Local) e converte visitantes em clientes fiéis todos os dias.
+              </p>
+            </div>
+
+            <!-- Lista de Benefícios -->
+            <ul class="space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Design Exclusivo e Sofisticado:</strong> nada de templates batidos que todo concorrente usa.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Otimização para o Google (SEO Local):</strong> apareça quando clientes pesquisarem na sua cidade ou bairro.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>100% Responsivo:</strong> experiência impecável tanto no celular quanto no computador.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Copywriting Persuasivo:</strong> textos estratégicos pensados para transformar cliques em chamadas no WhatsApp.</span>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="pt-8 mt-6 border-t border-slate-800/80 space-y-3">
+            <button onclick="openWhatsApp('Olá! Gostaria de um orçamento para criação de Site / Landing Page profissional para minha empresa.')" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-indigo-500/20 hover:bg-indigo-500 text-indigo-300 hover:text-slate-950 border border-indigo-500/30 transition flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Quero Meu Site Profissional</span>
+            </button>
+            <a href="#diferenciais" class="block w-full py-3 rounded-xl font-semibold text-xs text-slate-400 hover:text-white transition text-center">
+              Ver Padrões de Segurança & Infra &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       CALCULADORA DE ECONOMIA VS MARKETPLACES (FERRAMENTA DE CONVERSÃO)
+       ========================================================================= -->
+  <section id="calculadora" class="py-20 relative bg-slate-950/70 border-y border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8">
+      
+      <div class="glass-card rounded-3xl p-8 sm:p-12 border border-sky-500/20 relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-emerald-500/10 blur-3xl pointer-events-none rounded-full"></div>
+        
+        <div class="text-center max-w-2xl mx-auto space-y-3 mb-10">
+          <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
+            Simulador Interativo de Retorno sobre Investimento
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">
+            Quanto a sua operação perde para taxas de marketplaces?
+          </h3>
+          <p class="text-sm text-slate-400">
+            Arraste o valor para o faturamento aproximado do seu delivery mensal e veja o dinheiro que está saindo pelo ralo em comissões de 25%.
+          </p>
+        </div>
+
+        <!-- Slider Interativo -->
+        <div class="max-w-2xl mx-auto space-y-6">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-slate-400">Faturamento Delivery Mensal:</span>
+            <span id="revenueValue" class="text-2xl font-black text-sky-400 font-heading">R$ 30.000,00</span>
+          </div>
+
+          <input id="revenueSlider" type="range" min="5000" max="100000" step="2500" value="30000" class="w-full cursor-pointer accent-sky-400">
+
+          <div class="flex justify-between text-[11px] text-slate-500 font-mono">
+            <span>R$ 5.000</span>
+            <span>R$ 50.000</span>
+            <span>R$ 100.000+</span>
+          </div>
+
+          <!-- Resultados do Cálculo -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-5 rounded-2xl bg-red-950/20 border border-red-500/30 text-center">
+              <span class="text-xs text-red-300 font-semibold block mb-1">Perda Média Mensal em Comissões</span>
+              <span id="lossMonth" class="text-2xl sm:text-3xl font-black text-red-400 font-heading">R$ 7.500,00</span>
+              <span class="text-[11px] text-slate-400 block mt-1">Todo santo mês</span>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-red-950/20 border border-red-500/30 text-center">
+              <span class="text-xs text-red-300 font-semibold block mb-1">Prejuízo Anual Estimado</span>
+              <span id="lossYear" class="text-2xl sm:text-3xl font-black text-red-400 font-heading">R$ 90.000,00</span>
+              <span class="text-[11px] text-slate-400 block mt-1">Em 12 meses de operação</span>
+            </div>
+          </div>
+
+          <!-- Mensagem de Conversão -->
+          <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center text-sm text-slate-200">
+            <p id="savingsCallout">Você recupera até <strong class="text-emerald-400 font-bold">R$ 90.000,00</strong> todos os anos diretamente no caixa do seu negócio com o aplicativo próprio da Aura Digital.</p>
+          </div>
+
+          <div class="text-center pt-2">
+            <button onclick="openWhatsApp('Olá! Fiz a simulação de economia no site e quero um aplicativo próprio para parar de perder comissão de delivery.')" class="px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-sky-400 text-slate-950 font-bold text-sm tracking-wide shadow-lg shadow-emerald-500/20 hover:scale-[1.02] active:scale-95 transition">
+              Quero Recuperar Essa Margem com a Aura Digital &rarr;
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       4. POR QUE ESCOLHER A AURA DIGITAL? (CREDIBILIDADE TÉCNICA E PRÓXIMA)
+       ========================================================================= -->
+  <section id="diferenciais" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+            Nossos Pilares de Engenharia
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white leading-tight">
+            Credibilidade técnica aliada a um atendimento próximo de verdade.
+          </h2>
+          <p class="text-slate-400 text-base leading-relaxed">
+            Sabemos que no ramo gastronômico e no comércio local, um sistema fora do ar no sábado à noite significa clientes irritados e dinheiro perdido. Por isso, construímos uma base sólida.
+          </p>
+
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+              <i data-lucide="clock" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h5 class="text-sm font-bold text-white">Implantação Ágil</h5>
+              <p class="text-xs text-slate-400">Cardápio ou app no ar em até 7 dias úteis sem enrolação.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          
+          <!-- Pilar 1 -->
+          <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
+              <i data-lucide="server" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-lg font-bold font-heading text-white">Infraestrutura de Ponta e Estabilidade</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Sistemas hospedados em nuvem de alta capacidade com CDN global. Garantia de que seus clientes consigam pedir simultaneamente nos horários de maior movimento sem lentidão ou quedas.
+            </p>
+          </div>
+
+          <!-- Pilar 2 -->
+          <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <i data-lucide="headset" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-lg font-bold font-heading text-white">Suporte Direto e Humanizado</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Nada de abrir chamados demorados ou falar com robôs que não entendem a urgência da sua cozinha. Você fala diretamente no WhatsApp com a equipe de desenvolvimento.
+            </p>
+          </div>
+
+          <!-- Pilar 3 -->
+          <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <i data-lucide="trending-up" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-lg font-bold font-heading text-white">Foco Obsessivo em Resultados</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Não entregamos apenas código. Nossas interfaces são desenhadas com gatilhos mentais de UI/UX que incentivam adicionais, combos e aumento natural do ticket médio.
+            </p>
+          </div>
+
+          <!-- Pilar 4 -->
+          <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <i data-lucide="badge-check" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-lg font-bold font-heading text-white">Treinamento e Transição Suave</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Auxiliamos você e seus atendentes no primeiro dia de operação. O sistema é tão simples e intuitivo que em menos de 15 minutos sua equipe já domina todas as funções.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       PROCESSO PASSO A PASSO (COMO TRABALHAMOS)
+       ========================================================================= -->
+  <section class="py-20 bg-slate-950/80 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Metodologia sem Burocracia</span>
+        <h3 class="text-3xl font-extrabold font-heading text-white">Como colocamos sua empresa no digital em 3 passos:</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        
+        <!-- Passo 1 -->
+        <div class="glass-card p-6 rounded-2xl relative text-left">
+          <div class="w-10 h-10 rounded-full bg-sky-500 text-slate-950 font-black flex items-center justify-center text-lg mb-4">
+            1
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Alinhamento & Cardápio</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Coletamos seu cardápio, fotos, identidade visual e regras de negócio (taxa de entrega, horários, categorias).
+          </p>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="glass-card p-6 rounded-2xl relative text-left">
+          <div class="w-10 h-10 rounded-full bg-emerald-500 text-slate-950 font-black flex items-center justify-center text-lg mb-4">
+            2
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Montagem & Testes de Carga</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Subimos o sistema em nossos servidores ultra-rápidos e geramos os QR Codes elegantes prontos para impressão em acrílico ou adesivo.
+          </p>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="glass-card p-6 rounded-2xl relative text-left">
+          <div class="w-10 h-10 rounded-full bg-indigo-500 text-white font-black flex items-center justify-center text-lg mb-4">
+            3
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Lançamento & Vendas</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Seu comércio pronto para receber pedidos sem comissões com acompanhamento total da nossa equipe no seu lançamento.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       DEPOIMENTOS / PROVA SOCIAL
+       ========================================================================= -->
+  <section id="depoimentos" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Depoimentos Reais</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+          Quem usa as soluções da Aura Digital recomenda
+        </h2>
+        <p class="text-slate-400 text-sm">
+          Veja o que empresários do ramo de alimentação e serviços dizem sobre a nossa tecnologia.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Depoimento 1: Churrasquim do Marcelim -->
+        <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border border-slate-800">
+          <div class="space-y-4">
+            <div class="flex text-amber-400 gap-1 text-sm">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
+              "O cardápio digital por QR Code rodando na VPS da Aura Digital transformou nosso atendimento. No horário de pico, os clientes sentam na mesa, escaneiam o QR Code e o cardápio abre em menos de 1 segundo. Nossos garçons ganharam agilidade e as mesas giram muito mais rápido."
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-slate-800 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center font-bold text-amber-400 text-sm">
+              CM
+            </div>
+            <div>
+              <p class="text-xs font-bold text-white">Marcelim</p>
+              <p class="text-[11px] text-slate-400">Churrasquim do Marcelim • O Point de Santo Antônio</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2: Pizzaria do Mineiro -->
+        <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border border-slate-800">
+          <div class="space-y-4">
+            <div class="flex text-amber-400 gap-1 text-sm">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
+              "Estávamos deixando de 20% a 27% de cada pizza vendida nas mãos de plataformas terceiras. Com o aplicativo próprio da Aura Digital, passamos a atender nossos clientes direto no delivery sem taxas abusivas e com controle total da nossa base."
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-slate-800 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center font-bold text-red-400 text-sm">
+              PM
+            </div>
+            <div>
+              <p class="text-xs font-bold text-white">Mineiro</p>
+              <p class="text-[11px] text-slate-400">Pizzaria do Mineiro • Cardápio Digital & Delivery</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border border-slate-800">
+          <div class="space-y-4">
+            <div class="flex text-amber-400 gap-1 text-sm">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
+              "O site que a Aura Digital fez para o meu negócio me colocou na primeira página do Google na minha região. O design é extremamente elegante e passa uma credibilidade absurda aos clientes."
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-slate-800 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-indigo-400 text-sm">
+              AM
+            </div>
+            <div>
+              <p class="text-xs font-bold text-white">Dra. Aline Moreira</p>
+              <p class="text-[11px] text-slate-400">Diretora da Clínica Moreira Saúde</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       FAQ (PERGUNTAS FREQUENTES COM ACCORDION)
+       ========================================================================= -->
+  <section id="faq" class="py-20 bg-slate-950/70 border-t border-slate-800/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center space-y-3 mb-14">
+        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Tire suas Dúvidas</span>
+        <h2 class="text-3xl font-extrabold font-heading text-white">Perguntas Frequentes</h2>
+        <p class="text-sm text-slate-400">Tudo o que você precisa saber antes de iniciar seu projeto com a Aura Digital.</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- Pergunta 1 -->
+        <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+          <button class="accordion-btn w-full p-5 text-left flex items-center justify-between font-bold text-sm sm:text-base text-white hover:text-sky-400 transition">
+            <span>O cliente precisa baixar algum aplicativo para ver o cardápio digital?</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 shrink-0"></i>
+          </button>
+          <div class="accordion-content px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3">
+            Não! Essa é a maior vantagem do nosso sistema: o cliente simplesmente aponta a câmera do celular para o QR Code da mesa e o cardápio abre instantaneamente no navegador do aparelho, sem precisar de cadastro demorado e sem gastar a memória do celular dele.
+          </div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+          <button class="accordion-btn w-full p-5 text-left flex items-center justify-between font-bold text-sm sm:text-base text-white hover:text-sky-400 transition">
+            <span>Como o aplicativo próprio de delivery me ajuda a economizar?</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 shrink-0"></i>
+          </button>
+          <div class="accordion-content px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3">
+            Em marketplaces tradicionais (como iFood e Rappi), você chega a pagar entre 20% e 27% por pedido. Com o seu próprio aplicativo desenvolvido pela Aura Digital, você não paga comissão sobre as suas vendas. Toda a margem de lucro fica no seu caixa e você tem acesso direto ao telefone dos seus clientes para promoções e fidelização.
+          </div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+          <button class="accordion-btn w-full p-5 text-left flex items-center justify-between font-bold text-sm sm:text-base text-white hover:text-sky-400 transition">
+            <span>Quanto tempo leva para o meu sistema ficar pronto e operando?</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 shrink-0"></i>
+          </button>
+          <div class="accordion-content px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3">
+            Nosso prazo médio de implantação do Cardápio QR Code e App Delivery é de apenas 5 a 7 dias úteis após o envio das informações dos produtos. Para sites e landing pages personalizadas, o prazo varia de 7 a 14 dias úteis.
+          </div>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+          <button class="accordion-btn w-full p-5 text-left flex items-center justify-between font-bold text-sm sm:text-base text-white hover:text-sky-400 transition">
+            <span>Se eu precisar alterar um preço ou pausar um item esgotado, como faço?</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 shrink-0"></i>
+          </button>
+          <div class="accordion-content px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3">
+            Comodidade total para você focar apenas em atender seus clientes: basta nos enviar uma mensagem rápida no WhatsApp avisando a alteração ou o item esgotado que nós atualizamos tudo instantaneamente em tempo real. Você não precisa se preocupar com painéis complexos ou perder tempo operacional — nosso suporte dedicado cuida de tudo para você com agilidade máxima.
+          </div>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+          <button class="accordion-btn w-full p-5 text-left flex items-center justify-between font-bold text-sm sm:text-base text-white hover:text-sky-400 transition">
+            <span>Como funciona o suporte técnico caso eu precise de ajuda no final de semana?</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 shrink-0"></i>
+          </button>
+          <div class="accordion-content px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3">
+            Você tem canal direto no WhatsApp com nossa equipe de suporte e plantão técnico nos horários nobres de operação (sextas, sábados e domingos à noite). Você não fica desamparado na hora que mais precisa faturar.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       5. SEÇÃO DE CONTATO / FORMULÁRIO RÁPIDO & CTA FINAL
+       ========================================================================= -->
+  <section id="contato" class="py-24 relative overflow-hidden bg-grid">
+    <!-- Glow Orbs -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-t from-sky-500/15 via-emerald-500/10 to-transparent blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 relative z-10">
+      
+      <div class="glass-panel rounded-3xl p-8 sm:p-14 border border-slate-800 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Texto CTA -->
+          <div class="lg:col-span-6 space-y-5 text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+              Modernize Hoje
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-black font-heading text-white leading-tight">
+              Pronto para colocar o seu negócio no próximo nível?
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Não deixe seu faturamento na dependência de plataformas de terceiros ou cardápios obsoletos. Fale diretamente com quem entende de tecnologia para o comércio local.
+            </p>
+
+            <div class="space-y-3 pt-2">
+              <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+                <span>Orçamento gratuito sem compromisso</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+                <span>Demonstração prática ao vivo no seu estabelecimento</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+                <span>Condições facilitadas de implantação</span>
+              </div>
+            </div>
+
+            <!-- Botão Direto WhatsApp Gigante -->
+            <div class="pt-4">
+              <button onclick="openWhatsApp('Olá! Quero dar o próximo passo e modernizar meu estabelecimento com a Aura Digital.')" class="w-full sm:w-auto px-8 py-4 rounded-xl font-extrabold text-sm uppercase tracking-wide bg-gradient-to-r from-emerald-500 to-sky-400 text-slate-950 hover:shadow-xl hover:shadow-emerald-500/30 transition flex items-center justify-center gap-2.5">
+                <i data-lucide="message-circle" class="w-5 h-5 fill-slate-950"></i>
+                <span>Chamar no WhatsApp Comercial</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Formulário Rápido de Contato -->
+          <div class="lg:col-span-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800">
+            <h4 class="text-lg font-bold font-heading text-white mb-2">Solicitar Proposta Customizada</h4>
+            <p class="text-xs text-slate-400 mb-6">Preencha abaixo para receber uma análise sob medida para seu comércio.</p>
+
+            <form id="quickLeadForm" class="space-y-4">
+              <div>
+                <label for="leadName" class="block text-xs font-semibold text-slate-300 mb-1.5">Seu Nome / Nome do Responsável</label>
+                <input id="leadName" type="text" required placeholder="Ex: Felipe ou Carlos" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition">
+              </div>
+
+              <div>
+                <label for="leadSegment" class="block text-xs font-semibold text-slate-300 mb-1.5">Qual é o seu Tipo de Negócio?</label>
+                <select id="leadSegment" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-sky-500 transition">
+                  <option value="Restaurante ou Bar">Bar / Restaurante / Gastrobar</option>
+                  <option value="Pizzaria">Pizzaria (Foco em Delivery)</option>
+                  <option value="Hamburgueria ou Lanchonete">Hamburgueria / Lanchonete</option>
+                  <option value="Site Profissional / Serviços">Empresa / Site Institucional</option>
+                  <option value="Outro segmento comercial">Outro segmento comercial</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="leadCity" class="block text-xs font-semibold text-slate-300 mb-1.5">Sua Cidade / Estado</label>
+                <input id="leadCity" type="text" required placeholder="Ex: São Paulo - SP" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition">
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-sky-500 hover:bg-sky-400 text-slate-950 transition flex items-center justify-center gap-2">
+                <span>Receber Demonstração & Orçamento</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       RODAPÉ (FOOTER)
+       ========================================================================= -->
+  <footer class="bg-slate-950 border-t border-slate-800/80 pt-16 pb-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800/80">
+        
+        <!-- Coluna 1: Sobre -->
+        <div class="space-y-4 md:col-span-1">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center text-slate-950 font-black">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+            </div>
+            <span class="text-base font-bold font-heading text-white">Aura <span class="text-sky-400">Digital</span></span>
+          </div>
+          <p class="leading-relaxed">
+            Software house e estúdio de engenharia digital especializada em soluções de alta performance para bares, restaurantes e comércios locais.
+          </p>
+          <div class="flex items-center gap-3 text-slate-400 pt-1">
+            <span class="inline-flex items-center gap-1.5 text-[11px] text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              Sistemas Operacionais 100%
+            </span>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Soluções -->
+        <div class="space-y-3">
+          <p class="text-sm font-bold font-heading text-white uppercase tracking-wider">Soluções</p>
+          <ul class="space-y-2">
+            <li><a href="#solucoes" class="hover:text-sky-400 transition">Cardápio Digital por QR Code</a></li>
+            <li><a href="#solucoes" class="hover:text-sky-400 transition">App Próprio para Pizzarias</a></li>
+            <li><a href="#solucoes" class="hover:text-sky-400 transition">Criação de Sites Institucionais</a></li>
+            <li><a href="#solucoes" class="hover:text-sky-400 transition">Landing Pages de Alta Conversão</a></li>
+            <li><a href="#calculadora" class="hover:text-sky-400 transition">Simulador de Economia de Taxas</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Navegação Rápida -->
+        <div class="space-y-3">
+          <p class="text-sm font-bold font-heading text-white uppercase tracking-wider">Navegação</p>
+          <ul class="space-y-2">
+            <li><a href="#inicio" class="hover:text-sky-400 transition">Início</a></li>
+            <li><a href="#diferenciais" class="hover:text-sky-400 transition">Por que a Aura Digital?</a></li>
+            <li><a href="#depoimentos" class="hover:text-sky-400 transition">Depoimentos de Clientes</a></li>
+            <li><a href="#faq" class="hover:text-sky-400 transition">Perguntas Frequentes</a></li>
+            <li><a href="#contato" class="hover:text-sky-400 transition">Falar com a Engenharia</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Contato Direto -->
+        <div class="space-y-3">
+          <p class="text-sm font-bold font-heading text-white uppercase tracking-wider">Contato Comercial</p>
+          <p class="leading-relaxed">
+            Atendimento direto aos proprietários e gerentes de estabelecimentos.
+          </p>
+          <div class="pt-2">
+            <button onclick="openWhatsApp('Olá Aura Digital! Gostaria de conversar sobre as soluções para meu estabelecimento.')" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-white font-semibold flex items-center justify-center gap-2 transition">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+              <span>Canal Direto no WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Direitos Reservados -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+        <p>&copy; 2026 Aura Digital. Todos os direitos reservados. Feito para alta conversão.</p>
+        <p>Desenvolvido com tecnologia de última geração para alta performance.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =========================================================================
+       MODAL DE DEMONSTRAÇÃO INTERATIVA
+       ========================================================================= -->
+  <div id="demoModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Cabeçalho do Modal -->
+      <div class="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
+        <div>
+          <h4 id="demoModalTitle" class="text-sm font-bold text-white">Simulador Interativo</h4>
+          <p id="demoModalSubtitle" class="text-[11px] text-slate-400">Experimente como o seu cliente interage em tempo real</p>
+        </div>
+        <button id="closeDemoModalBtn" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Corpo do Modal com Moldura do Celular -->
+      <div class="p-4 flex justify-center bg-slate-950">
+        <div id="demoPhoneFrame" class="w-full max-w-[340px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-900">
+          <!-- Conteúdo gerado dinamicamente pelo script.js -->
+        </div>
+      </div>
+
+      <!-- Rodapé do Modal -->
+      <div class="p-3 bg-slate-900/90 border-t border-slate-800 text-center">
+        <p class="text-[11px] text-slate-400">Gostou da interface? Podemos personalizar com a sua logo e cardápio em poucos dias.</p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP COM STATUS "ONLINE"
+       ========================================================================= -->
+  <aside aria-label="Atendimento Rápido" class="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+    <!-- Tooltip explicativo -->
+    <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/95 border border-slate-800 text-slate-200 text-xs shadow-xl pointer-events-none">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
+      <span class="font-medium">Estamos online! Fale conosco</span>
+    </div>
+
+    <!-- Botão Redondo Pulsante -->
+    <button onclick="openWhatsApp('Olá! Gostaria de tirar dúvidas rápidas sobre os sistemas da Aura Digital.')" aria-label="Falar no WhatsApp" class="w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-500 to-emerald-400 text-slate-950 flex items-center justify-center shadow-lg shadow-emerald-500/40 hover:scale-110 active:scale-95 transition-all duration-300">
+      <i data-lucide="message-circle" class="w-7 h-7 fill-slate-950"></i>
+    </button>
+  </aside>
+
+
+  <!-- Inicialização dos Ícones Lucide e Scripts -->
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
