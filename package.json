@@ -1,0 +1,26 @@
+{
+  "name": "aura-digital",
+  "version": "1.0.0",
+  "description": "Website institucional e plataforma de conversão da Aura Digital",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js",
+    "dev": "node servidor.js",
+    "server": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "keywords": [
+    "aura-digital",
+    "software-house",
+    "cardapio-digital",
+    "delivery",
+    "landing-page"
+  ],
+  "author": "Aura Digital",
+  "license": "MIT"
+}
