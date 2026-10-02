@@ -6,8 +6,8 @@
 
 // 1. Configuração Comercial Oficial da Aura Digital & Projetos Reais
 const CONFIG = {
-  // Altere para o seu número de WhatsApp com DDI + DDD (ex: 5511999999999)
-  whatsappNumber: "5511999999999", 
+  // Número oficial de WhatsApp comercial (DDI + DDD + Número)
+  whatsappNumber: "5527988721801", 
   companyName: "Aura Digital",
   defaultMessage: "Olá! Gostaria de solicitar um orçamento para o meu comércio com a equipe da Aura Digital.",
   
